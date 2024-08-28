@@ -6,6 +6,7 @@
     neovim
     dust
     fastfetch
+    tldr
   ];
   
   programs = {  
@@ -21,7 +22,7 @@
     git = {  
       enable = true;
       userName = "SapphireGaze";
-      userEmail = "sapphiregaze@sapphiregaze.dev";
+      userEmail = "jasminehuang2048@outlook.com";
     };
     
     zoxide = {  
@@ -34,10 +35,24 @@
       enableCompletion = true;
       autosuggestion.enable = true;
       syntaxHighlighting.enable = true;
+      historySubstringSearch.enable = true;
 
       shellAliases = {
+        ls = "ls --color=auto";
+        grep = "grep --color=auto";
         ll = "ls -la";
+        cd = "z-and-ls";
+        rebuild = "sudo nixos-rebuild switch --flake /etc/nixos#default";
       };
+
+      initExtra = ''
+        function z-and-ls() {
+          z "$@"
+          ls
+        }
+
+        fastfetch
+      '';
 
       history = {
         size = 10000;
@@ -46,10 +61,7 @@
 
       oh-my-zsh = {
         enable = true;
-	plugins = [ 
-	  "git" 
-	  "zsh-autosuggestions"
-	];
+        plugins = [ "git" ];
       };
     };
   };
