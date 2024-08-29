@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 { 
   home.packages = with pkgs; [  
@@ -16,7 +16,7 @@
     
     starship = {  
       enable = true;
-      settings = {};
+      settings = { };
     };
     
     git = {  

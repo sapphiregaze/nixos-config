@@ -108,6 +108,7 @@
       "wheel" 
     ];
     shell = pkgs.zsh;
+    packages = [ inputs.home-manager.packages.${pkgs.system}.default ];
   };
 
   home-manager = {
