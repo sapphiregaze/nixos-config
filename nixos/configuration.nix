@@ -64,10 +64,10 @@
   services.printing.enable = true;
 
   # Enable sound with pipewire/pulseaudio.
-  hardware.pulseaudio.enable = true;
+  hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
-    enable = false;
+    enable = true;
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
@@ -78,7 +78,8 @@
     # no need to redefine it in your config for now)
     #media-session.enable = true;
   };
-
+  
+  # Enable all firmware
   hardware.enableAllFirmware = true;
 
   # Enable touchpad support (enabled default in most desktopManager).
@@ -94,11 +95,13 @@
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     git
   ];
-
+  
+  # Fix for audio device not being detected
   boot.extraModprobeConfig = ''
     options snd-intel-dspcfg dsp_driver=1
   '';
-
+  
+  # Set up user configurations and home manager
   programs.zsh.enable = true;
   users.users.sapphiregaze = {
     isNormalUser = true;
