@@ -2,7 +2,7 @@
 
 {
   imports = [
-      ./cli.nix
+      ./cli-tools.nix
       ./firefox.nix
     ];
   

@@ -14,7 +14,6 @@
   programs = {
     firefox = {
       enable = true;
-      languagePacks = [ "en" "en-US" ];
 
       /* ---- POLICIES ---- */
       # Check about:policies#documentation for options.
@@ -58,38 +57,6 @@
 	    (extension "pixel-punk-dynamic-theme" "{a5b9a884-8ef0-4368-bc65-bf5e122d8929}")
           ];
 	
-        /*
-        ExtensionSettings = {
-          "*".installation_mode = "blocked"; # blocks all addons except the ones specified below
-          # uBlock Origin:
-          "uBlock0@raymondhill.net" = {
-            install_url = "https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/latest.xpi";
-            installation_mode = "force_installed";
-          };
-          # Privacy Badger:
-          "jid1-MnnxcxisBPnSXQ@jetpack" = {
-            install_url = "https://addons.mozilla.org/en-US/firefox/addon/privacy-badger17/latest.xpi";
-            installation_mode = "force_installed";
-          };
-	  # Dark Reader:
-	  "addon@darkreader.org" = {
-            install_url = "https://addons.mozilla.org/en-US/firefox/addon/darkreader/latest.xpi";
-	    installation_mode = "force_installed";
-	  };
-	  # Bitwarden:
-	  "{446900e4-71c2-419f-a6a7-df9c091e268b}" = {
-            install_url = "https://addons.mozilla.org/en-US/firefox/addon/bitwarden-password-manager/latest.xpi";
-	    installation_mode = "force_installed";
-	  };
-	  # Pixel-Punk Theme:
-	  "{a5b9a884-8ef0-4368-bc65-bf5e122d8929}" = {
-            install_url = "https://addons.mozilla.org/en-US/firefox/addon/pixel-punk-dynamic-theme/latest.xpi";
-	    installation_mode = "force_installed";
-	  };
-        };
-        */
-
-        /* ---- PREFERENCES ---- */
         # Check about:config for options.
         Preferences = { 
           "browser.contentblocking.category" = { Value = "strict"; Status = "locked"; };
