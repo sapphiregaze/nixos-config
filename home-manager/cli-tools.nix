@@ -3,16 +3,17 @@
 { 
   home.packages = with pkgs; [  
     curl
-    neovim
     dust
-    fastfetch
     tldr
+    tailscale
   ];
   
   programs = {  
     fzf.enable = true;
     bat.enable = true;
     btop.enable = true;
+    neovim.enable = true;
+    fastfetch.enable = true;
     
     starship = {  
       enable = true;

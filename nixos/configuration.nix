@@ -54,6 +54,14 @@
   services.displayManager.sddm.wayland.enable = true;
   services.desktopManager.plasma6.enable = true;
 
+  # Enable fingerprint sensor
+  services.fprintd.enable = true;
+  services.fprintd.tod.enable = true;
+  services.fprintd.tod.driver = pkgs.libfprint-2-tod1-goodix;
+
+  # Enable tailscale daemon
+  services.tailscale.enable = true;
+
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "us";
@@ -92,8 +100,10 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     wget
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    vim
     git
+    toybox
+    fprintd
   ];
   
   # Fix for audio device not being detected
