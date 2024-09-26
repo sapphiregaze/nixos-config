@@ -102,8 +102,13 @@
     wget
     vim
     git
-    toybox
+    file
+    busybox
     fprintd
+  ];
+
+  fonts.packages = with pkgs; [
+    nerdfonts
   ];
   
   # Fix for audio device not being detected

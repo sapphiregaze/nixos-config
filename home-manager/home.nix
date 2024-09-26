@@ -28,6 +28,7 @@
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
+    vlc
     obsidian
     melonDS
 
@@ -44,6 +45,12 @@
     #   echo "Hello, ${config.home.username}!"
     # '')
   ];
+
+  programs.kitty = {
+    enable = true;
+    theme = "Forest Night";
+    shellIntegration.enableZshIntegration = true;
+  };
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
