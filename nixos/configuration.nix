@@ -11,10 +11,14 @@
       inputs.home-manager.nixosModules.default
     ];
 
+  # Kernel.
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  # Enable experimental flakes feature
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   networking.hostName = "nixos"; # Define your hostname.
@@ -110,11 +114,6 @@
   fonts.packages = with pkgs; [
     nerdfonts
   ];
-  
-  # Fix for audio device not being detected
-  boot.extraModprobeConfig = ''
-    options snd-intel-dspcfg dsp_driver=1
-  '';
   
   # Set up user configurations and home manager
   programs.zsh.enable = true;
