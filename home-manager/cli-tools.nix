@@ -64,7 +64,7 @@
         ll = "eza -la --header --git";
         lt = "eza --tree";
         cd = "z-and-eza";
-	open = "xdg-open";
+        open = "xdg-open";
         rebuild = "sudo nixos-rebuild switch --flake /etc/nixos#default";
       };
 
