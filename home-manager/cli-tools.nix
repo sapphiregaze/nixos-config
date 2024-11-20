@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, ... }:
 
 { 
   home.packages = with pkgs; [  
@@ -15,7 +15,51 @@
     fzf.enable = true;
     bat.enable = true;
     btop.enable = true;
-    neovim.enable = true;
+
+    nixvim = {
+      enable = true;
+      colorschemes.gruvbox.enable = true;
+
+      plugins = {
+	lualine.enable = true;
+	lint.enable = true;
+	lsp-format.enable = true;
+	treesitter.enable = true;
+	telescope.enable = true;
+	nvim-colorizer.enable = true;
+	neo-tree.enable = true;
+	indent-blankline.enable = true;
+	gitsigns.enable = true;
+	web-devicons.enable = true;
+
+	cmp = {
+	  enable = true;
+	  autoEnableSources = true;
+	  settings.sources = [
+            {name = "nvim_lsp";}
+            {name = "path";}
+            {name = "buffer";}
+            {name = "luasnip";}
+          ];
+	};
+
+	lsp = {
+	  enable = true;
+	  servers = {
+	    nixd.enable = true;
+	    ts_ls.enable = true;
+	    gopls.enable = true;
+	    golangci_lint_ls.enable = true;
+	  };
+	};
+      };
+
+      opts = {
+        number = true;
+        relativenumber = true;
+        shiftwidth = 2;
+      };
+    };
 
     direnv = {
       enable = true;
@@ -58,7 +102,7 @@
 
     eza = {
       enable = true;
-      icons = true;
+      icons = "auto";
       enableZshIntegration = true;
       extraOptions = [
         "--group-directories-first"
